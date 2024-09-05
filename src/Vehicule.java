@@ -8,7 +8,7 @@ abstract public class Vehicule {
     private Data annee;
     private Float prixDeBase;
 
-    public Vehicule(int id, String marque, String modele, Data annee, Float prixDeBase) {
+    public Vehicule(int id, String marque, String modele, Data annee) {
         this.id = id;
         this.marque = marque;
         this.modele = modele;
