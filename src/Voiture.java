@@ -6,8 +6,8 @@ public class Voiture extends Vehicule {
     private int nombrePortes;
     private boolean automatique;
 
-    public Voiture(int id, String modele, String marque, Data annee, int nombrePortes, boolean automatique) {
-        super(id, modele, marque, annee);
+    public Voiture(int id, String modele, String marque, Data annee, float prixDeBase, int nombrePortes, boolean automatique) {
+        super(id, modele, marque, annee, prixDeBase);
         this.nombrePortes = nombrePortes;
         this.automatique = automatique;
     }
@@ -29,19 +29,19 @@ public class Voiture extends Vehicule {
     }
 
     public Float calculerPrixLocation(int jours){
-        return getPrixDeBase() * jours;
+        return prixDeBase * jours;
     }
 
     public void afficherType(){
-        System.out.println("Cette vehicule est de type Voiture");
+        System.out.println("La vehicule est de type Voiture");
     }
 
     public void obtenirDescription(){
         System.out.println("Description de la voiture ");
-        System.out.println("La marque : " + getMarque());
-        System.out.println("Le modele : " + getModele());
-        System.out.println("Annee : " + getAnnee());
-        System.out.println("Prix de base : " + getPrixDeBase());
+        System.out.println("La marque : " + marque);
+        System.out.println("Le modele : " + modele);
+        System.out.println("Annee : " + annee);
+        System.out.println("Prix de base : " + prixDeBase);
         System.out.println("Nombre de portes : " + getNombrePortes());
         System.out.println("Automatique : " + isAutomatique());
     }
