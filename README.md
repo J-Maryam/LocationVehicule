@@ -39,6 +39,7 @@ Le projet est organisé en plusieurs packages :
 src/ │ ├── config/ │ └── DatabaseConfig.java # Configuration de la connexion à la BD (Singleton) │ ├── dao/ │ ├── PartnerDao.java # DAO pour les partenaires │ ├── PromotionDao.java # DAO pour les promotions │ ├── TicketDao.java # DAO pour les tickets │ └── ContractDao.java # DAO pour les contrats │ ├── models/ │ ├── Partner.java # Entité partenaire │ ├── Promotion.java # Entité promotion │ ├── Ticket.java # Entité ticket │ ├── Contract.java # Entité contrat │ └── enums/ # Enums pour les statuts des contrats, types de réductions, etc. │ ├── console/ │ ├── MainMenu.java # Menu principal pour la navigation │ ├── PartnerMenu.java # Opérations pour les partenaires │ ├── PromotionMenu.java # Opérations pour les promotions │ ├── TicketMenu.java # Opérations pour les tickets │ └── ContractMenu.java # Opérations pour les contrats │ └── main/ └── Main.java # Point d'entrée de l'application
 
 
+
 ## Installation
 
 ### Prérequis
@@ -48,20 +49,19 @@ src/ │ ├── config/ │ └── DatabaseConfig.java # Configuration de 
 ## UML Diagrammes
 Voici le diagramme UML des classes utilisées dans le projet. Vous pouvez y accéder en cliquant sur le lien ci-dessous :
 
-[Diagramme UML des classes](https://lucid.app/lucidchart/1a44254d-c877-4fed-beaa-734e27290630/edit?viewport_loc=-239%2C179%2C2415%2C1051%2CHWEp-vi-RSFO&invitationId=inv_a2069a07-a55d-40db-a341-6b937da2b99f)
+- [Diagramme UML des classes](https://lucid.app/lucidchart/1a44254d-c877-4fed-beaa-734e27290630/edit?viewport_loc=-239%2C179%2C2415%2C1051%2CHWEp-vi-RSFO&invitationId=inv_a2069a07-a55d-40db-a341-6b937da2b99f)
 
-## Diagramme UML des classes
-Gestion de Projet - Jira
+## Gestion de Projet - Jira
 Les issues du projet sont gérées via Jira. Vous pouvez accéder aux tickets en suivant ce lien :
 
-[Accès Jira](https://maryamjammar1509-1724855071586.atlassian.net/jira/software/projects/EM/boards/1?sprintStarted=true&atlOrigin=eyJpIjoiMWRmMzQ3YzY3ZDBjNDUzNzkxMTI2MjMzMjdlZTA3MjMiLCJwIjoiaiJ9)
+- [Accès Jira](https://maryamjammar1509-1724855071586.atlassian.net/jira/software/projects/EM/boards/1?sprintStarted=true&atlOrigin=eyJpIjoiMWRmMzQ3YzY3ZDBjNDUzNzkxMTI2MjMzMjdlZTA3MjMiLCJwIjoiaiJ9)
 
 ### Configuration de la Base de Données
 1. Créez une base de données PostgreSQL :
    ```bash
    createdb ecomove
 
-   -- Table des partenaires
+  -- Table des partenaires
 CREATE TABLE partenaires (
     id UUID PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
@@ -104,10 +104,11 @@ CREATE TABLE tickets (
 
 
 ### Configuration du Projet
-Clonez le projet depuis le repository :
-   ```bash
+
+1.Clonez le projet depuis le repository :
    [git clone https://github.com/username/ecomove.git](https://github.com/J-Maryam/EcoMove.git)
-Mettez à jour le fichier DatabaseConfig.java dans le package config avec vos identifiants PostgreSQL :
+   
+2.Mettez à jour le fichier DatabaseConfig.java dans le package config avec vos identifiants PostgreSQL :
 public class DatabaseConfig {
     private static final String URL = "jdbc:postgresql://localhost:5432/ecomove";
     private static final String USER = "votre_utilisateur";
@@ -115,21 +116,20 @@ public class DatabaseConfig {
     // Code pour le Singleton...
 }
 
-Compilation et Exécution
-Ouvrez le projet dans votre IDE (par exemple, IntelliJ, Eclipse).
-Compilez le projet.
-Exécutez l'application via la classe Main.java, qui lancera l'interface en ligne de commande.
-Utilisation
-Lancez l'application.
-Utilisez le menu principal pour gérer les partenaires, promotions, tickets ou contrats.
-Suivez les instructions pour ajouter, afficher, mettre à jour ou supprimer des enregistrements.
-Quittez l'application en sélectionnant l'option Quitter.
-Améliorations Futures
-Implémenter l'authentification pour différents rôles d'utilisateur (Admin, Manager, etc.).
-Ajouter la gestion des factures ou des paiements.
-Créer une interface graphique (GUI) pour remplacer l'interface console.
-Améliorer la validation des champs tels que les dates et les UUID.
-Licence
+## Compilation et Exécution
+
+   1. Ouvrez le projet dans votre IDE (par exemple, IntelliJ, Eclipse).
+   2. Compilez le projet.
+   3. Exécutez l'application via la classe Main.java, qui lancera l'interface en ligne de commande.
+
+## Utilisation
+
+   1. Lancez l'application.
+   2. Utilisez le menu principal pour gérer les partenaires, promotions, tickets ou contrats.
+   3. Suivez les instructions pour ajouter, afficher, mettre à jour ou supprimer des enregistrements.
+   4. Quittez l'application en sélectionnant l'option Quitter.
+
+## Licence
 Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier et de le distribuer.
 
 
@@ -140,7 +140,4 @@ Ce projet est sous licence MIT. Vous êtes libre de l'utiliser, de le modifier e
 - **Structure du Projet** : Détails de l'architecture du projet.
 - **Installation** : Étapes pour installer et configurer le projet localement.
 - **Utilisation** : Guide pour utiliser l'application.
-- **Améliorations Futures** : Propositions d'améliorations à intégrer.
-  
-Cela vous permet de communiquer les détails essentiels de votre projet aux futurs développeurs ou utilisateurs.
 
