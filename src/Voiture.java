@@ -29,7 +29,11 @@ public class Voiture extends Vehicule {
     }
 
     public Float calculerPrixLocation(int jours){
-        return prixDeBase * jours;
+        float prixLocation = prixDeBase * jours;
+        if(automatique){
+            prixLocation *= 0.1;
+        }
+        return prixLocation;
     }
 
     public void afficherType(){
