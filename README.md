@@ -45,18 +45,31 @@ src/ │ ├── config/ │ └── DatabaseConfig.java # Configuration de 
 1. **Java** : Assurez-vous que le JDK Java (version 8 ou supérieure) est installé.
 2. **PostgreSQL** : Installez PostgreSQL et créez une base de données pour l'application.
 
+## UML Diagrammes
+Voici le diagramme UML des classes utilisées dans le projet. Vous pouvez y accéder en cliquant sur le lien ci-dessous :
+
+[Diagramme UML des classes](https://lucid.app/lucidchart/1a44254d-c877-4fed-beaa-734e27290630/edit?viewport_loc=-239%2C179%2C2415%2C1051%2CHWEp-vi-RSFO&invitationId=inv_a2069a07-a55d-40db-a341-6b937da2b99f)
+
+## Diagramme UML des classes
+Gestion de Projet - Jira
+Les issues du projet sont gérées via Jira. Vous pouvez accéder aux tickets en suivant ce lien :
+
+[Accès Jira](https://maryamjammar1509-1724855071586.atlassian.net/jira/software/projects/EM/boards/1?sprintStarted=true&atlOrigin=eyJpIjoiMWRmMzQ3YzY3ZDBjNDUzNzkxMTI2MjMzMjdlZTA3MjMiLCJwIjoiaiJ9)
+
 ### Configuration de la Base de Données
 1. Créez une base de données PostgreSQL :
    ```bash
    createdb ecomove
 
-   CREATE TABLE partenaires (
+   -- Table des partenaires
+CREATE TABLE partenaires (
     id UUID PRIMARY KEY,
     nom VARCHAR(255) NOT NULL,
     adresse VARCHAR(255),
     contactInfo VARCHAR(255)
 );
 
+-- Table des contrats
 CREATE TABLE contrats (
     id UUID PRIMARY KEY,
     startDate DATE NOT NULL,
@@ -65,15 +78,38 @@ CREATE TABLE contrats (
     agreementConditions TEXT,
     renewable BOOLEAN,
     contractStatus VARCHAR(50),
-    partnerId UUID REFERENCES partenaires(id)
+    partnerId UUID REFERENCES partenaires(id) ON DELETE CASCADE
 );
 
--- Répétez l'opération pour les promotions et les tickets...
-Configuration du Projet
-Clonez ce dépôt.
+-- Table des promotions
+CREATE TABLE promotions (
+    id UUID PRIMARY KEY,
+    discountType VARCHAR(50) NOT NULL,
+    discountValue FLOAT NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    contractId UUID REFERENCES contrats(id) ON DELETE CASCADE
+);
+
+-- Table des tickets
+CREATE TABLE tickets (
+    id UUID PRIMARY KEY,
+    transportType VARCHAR(50) NOT NULL,
+    purchasePrice FLOAT NOT NULL,
+    salePrice FLOAT NOT NULL,
+    saleDate DATE NOT NULL,
+    ticketStatus VARCHAR(50) NOT NULL,
+    contractId UUID REFERENCES contrats(id) ON DELETE CASCADE
+);
+
+
+### Configuration du Projet
+Clonez le projet depuis le repository :
+   ```bash
+   [git clone https://github.com/username/ecomove.git](https://github.com/J-Maryam/EcoMove.git)
 Mettez à jour le fichier DatabaseConfig.java dans le package config avec vos identifiants PostgreSQL :
 public class DatabaseConfig {
-    private static final String URL = "jdbc:postgresql://localhost:5432/ecomove_db";
+    private static final String URL = "jdbc:postgresql://localhost:5432/ecomove";
     private static final String USER = "votre_utilisateur";
     private static final String PASSWORD = "votre_mot_de_passe";
     // Code pour le Singleton...
